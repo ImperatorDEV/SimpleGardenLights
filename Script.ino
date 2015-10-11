@@ -5,9 +5,9 @@
 #define photo   A0
 #define ref     A1
 
-#define rot     A2
-#define grun    A3
-#define blau    A4
+#define red     A2
+#define green    A3
+#define blue    A4
 
 #define ledqt   3
 #define ledpin  3
@@ -21,15 +21,15 @@ CRGB leds[ledqt];
 
 void setup() {
   FastLED.addLeds<WS2812B, ledpin, GRB>(leds, ledqt);
-  cl[0]=map(analogRead(rot), 0, 1023, 0, 255);
-  cl[1]=map(analogRead(grun), 0, 1023, 0, 255);
-  cl[2]=map(analogRead(blau), 0, 1023, 0, 255);
+  cl[0]=map(analogRead(red), 0, 1023, 0, 255);
+  cl[1]=map(analogRead(green), 0, 1023, 0, 255);
+  cl[2]=map(analogRead(blue), 0, 1023, 0, 255);
   pinMode(funpin, INPUT_PULLUP);
 }
 
 void loop() {
   if(digitalRead(funpin) == HIGH) {
-    havinfun();
+    funmode();
   }
   if(analogRead(photo)>=analogRead(ref)) {
     ledcl(cl[0], cl[1], cl[2]);
@@ -47,7 +47,7 @@ int ledcl(int a,int b,int c){
   FastLED.show();
 }
 
-int havinfun(){
+int funmode(){
   while(digitalRead(funpin) == HIGH){
     int i;
     for(i=0; i<ledqt;i++){
