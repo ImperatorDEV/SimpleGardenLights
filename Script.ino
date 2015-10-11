@@ -6,7 +6,7 @@
 #define ref     A1
 
 #define red     A2
-#define green    A3
+#define green   A3
 #define blue    A4
 
 #define ledqt   3
