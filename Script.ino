@@ -57,9 +57,3 @@ int funmode(){
     delay(200);
     }
   }
-
-int renardmode(){
-  
-  
-}
-
